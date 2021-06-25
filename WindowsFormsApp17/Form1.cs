@@ -58,11 +58,13 @@ namespace WindowsFormsApp17
             {
                 if (fillbtn.Checked)
                 {
-                    graphics.FillEllipse(new SolidBrush(a), new Rectangle(x, y, h, w));
+                    Point[] points = new Point[] { new Point(x, y), new Point(e.X, e.Y), new Point(e.X - 500, e.Y) };
+                    graphics.FillPolygon(new SolidBrush(a), points);
                 }
                 else
                 {
-                    graphics.DrawEllipse(new Pen(a, 3.5f), new Rectangle(x, y, h, w));
+                    Point[] points = new Point[] { new Point(x, y), new Point(e.X, e.Y), new Point(e.X - 400, e.Y) };
+                    graphics.DrawPolygon(new Pen(a,2.5f), points);
                 }
             }
         }
